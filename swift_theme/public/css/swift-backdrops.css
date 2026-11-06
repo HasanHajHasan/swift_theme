@@ -191,6 +191,28 @@ html[data-swift-backdrop="none"] body::after {
    The generic six above remain, and are what Custom Colors picks from.
    ================================================================== */
 
+/* Droobi — the brand file's drip, hanging from the top of the window in a
+   lilac made of the purple (the file's lilac drip over its purple, lightened
+   for a page people work on all day), and the yellow as a warm glow low in the
+   corner. The drip is the file's own path, drawn as a mask so its colour
+   still comes from the preset. */
+html[data-swift-backdrop="droobi"] body::before {
+  animation: none;
+  background:
+    radial-gradient(48vw 40vh at 100% 100%,
+      color-mix(in oklab, var(--swift-accent-tint, var(--swift-secondary)) 22%, transparent), transparent 70%),
+    radial-gradient(70vw 46vh at 50% 0%,
+      color-mix(in oklab, var(--swift-primary) 14%, transparent), transparent 70%),
+    var(--bg-color);
+}
+
+html[data-swift-backdrop="droobi"] body::after {
+  content: "";
+  background: color-mix(in oklab, var(--swift-primary) 20%, transparent);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1080 449' preserveAspectRatio='none'%3E%3Cpath d='M0,110.647C5.462,110.647 31.022,186.945 34.477,195.441C53.406,241.997 68.131,290.145 87.391,336.573C101.498,370.581 116.007,409.486 150.422,427.914C186.271,447.11 230.12,430.671 249.748,396.478C268.502,363.806 273.091,324.989 291.802,292.247C313.787,253.777 360.461,234.619 400.248,261.069C463.815,303.331 435.825,437.45 530.042,440.063C635.76,442.994 615.181,301.621 684.028,259.348C684.03,259.346 732.448,229.618 778.328,274.624C821.426,316.905 811.969,401.448 866.873,433.648C892.692,448.79 925.162,440.406 946.239,421.043C980.09,389.943 993.332,334.66 1009.6,292.622C1027.01,247.605 1044.43,202.588 1061.85,157.571C1066.66,145.131 1080,124.236 1080,110.646L1080,0L0,0C0,65.778 0,110.647 0,110.647'/%3E%3C/svg%3E") center top / 100% clamp(120px, 22vh, 240px) no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1080 449' preserveAspectRatio='none'%3E%3Cpath d='M0,110.647C5.462,110.647 31.022,186.945 34.477,195.441C53.406,241.997 68.131,290.145 87.391,336.573C101.498,370.581 116.007,409.486 150.422,427.914C186.271,447.11 230.12,430.671 249.748,396.478C268.502,363.806 273.091,324.989 291.802,292.247C313.787,253.777 360.461,234.619 400.248,261.069C463.815,303.331 435.825,437.45 530.042,440.063C635.76,442.994 615.181,301.621 684.028,259.348C684.03,259.346 732.448,229.618 778.328,274.624C821.426,316.905 811.969,401.448 866.873,433.648C892.692,448.79 925.162,440.406 946.239,421.043C980.09,389.943 993.332,334.66 1009.6,292.622C1027.01,247.605 1044.43,202.588 1061.85,157.571C1066.66,145.131 1080,124.236 1080,110.646L1080,0L0,0C0,65.778 0,110.647 0,110.647'/%3E%3C/svg%3E") center top / 100% clamp(120px, 22vh, 240px) no-repeat;
+}
+
 /* Iron Man — arc reactor rings under angular armour plating */
 html[data-swift-backdrop="iron-man"] body::before {
   animation: none;

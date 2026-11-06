@@ -1,0 +1,61 @@
+/* Swift Theme — Droobi
+   Generated from PREMIUM_THEMES["Droobi"] by scripts/generate_theme_css.py.
+   Do not edit by hand; the palette is the source of truth.
+
+   Loaded on its own — only the selected preset's stylesheet is ever added. */
+
+html[data-swift-preset="droobi"] {
+  color-scheme: light;
+
+  /* Brand pair */
+  --swift-primary:      #904bc8;
+  --swift-secondary:    #5d2886;
+  --swift-primary-soft: rgba(144, 75, 200, 0.14);
+
+  /* Accent aliases — the rest of the app reads these */
+  --swift-accent:       #904bc8;
+  --swift-accent-hover: #7a40aa;
+  --swift-accent-fg:    #ffffff;
+  --swift-accent-soft:  rgba(144, 75, 200, 0.14);
+  --swift-accent-tint:  #fefc04;
+
+  /* The brand sidebar paints a gradient from the primary down to a darkened
+     version of it, so the panel is two different colours and the text has to
+     be legible on both. on_primary is chosen against the primary alone, and on
+     two presets that left the lower half at 3.4:1 and 3.9:1 — present, styled
+     and unreadable. This is picked against the darker end and checked against
+     both, which is why it is a token of its own rather than a reuse. */
+  --swift-sidebar-fg:   #ffffff;
+  --swift-sidebar-fill-start: #904bc8;
+  --swift-sidebar-fill-end: #793fa8;
+
+  /* Roles */
+  --swift-canvas:       #f8f2ff;
+  --swift-surface:      #ffffff;
+  --swift-surface-alt:  #fcf9ff;
+  --swift-on-canvas:    #221830;
+  --swift-on-surface:   #221830;
+  --swift-muted:        #71687d;
+  --swift-border:       rgba(34, 24, 48, 0.13);
+
+  /* Mapped onto the variables Frappe itself paints with */
+  --bg-color:            #f8f2ff;
+  --fg-color:            #ffffff;
+  --card-bg:             #ffffff;
+  --subtle-fg:           #fcf9ff;
+  --subtle-accent:       #fbf8fd;
+  --control-bg:          #fbf8fd;
+  --control-bg-on-gray:  #fcf9ff;
+  --border-color:        rgba(34, 24, 48, 0.13);
+  --text-color:          #221830;
+  --text-muted:          #71687d;
+  --text-light:          #71687d;
+  --heading-color:       #221830;
+  --sidebar-bg:          #fcf9ff;
+  --navbar-bg:           rgba(255, 255, 255, 0.82);
+
+  /* Fallback wash for when no backdrop is selected */
+  --swift-ambient:
+    radial-gradient(1200px 600px at 8% -10%, rgba(144, 75, 200, 0.16), transparent 60%),
+    radial-gradient(900px 500px at 100% 110%, rgba(93, 40, 134, 0.12), transparent 60%);
+}

@@ -16,6 +16,17 @@
    Colour still comes only from --swift-primary / --swift-secondary — the
    shape is what carries the character, not a hardcoded hue. */
 
+/* Droobi — the brand file's drip running off the card's top edge */
+html[data-swift-preset="droobi"] .number-card::before,
+html[data-swift-preset="droobi"] .number-widget-box::before {
+    height: 12px;
+    background: linear-gradient(90deg,
+        var(--swift-primary, var(--swift-accent)),
+        var(--swift-secondary, var(--swift-accent-hover)));
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1080 449' preserveAspectRatio='none'%3E%3Cpath d='M0,110.647C5.462,110.647 31.022,186.945 34.477,195.441C53.406,241.997 68.131,290.145 87.391,336.573C101.498,370.581 116.007,409.486 150.422,427.914C186.271,447.11 230.12,430.671 249.748,396.478C268.502,363.806 273.091,324.989 291.802,292.247C313.787,253.777 360.461,234.619 400.248,261.069C463.815,303.331 435.825,437.45 530.042,440.063C635.76,442.994 615.181,301.621 684.028,259.348C684.03,259.346 732.448,229.618 778.328,274.624C821.426,316.905 811.969,401.448 866.873,433.648C892.692,448.79 925.162,440.406 946.239,421.043C980.09,389.943 993.332,334.66 1009.6,292.622C1027.01,247.605 1044.43,202.588 1061.85,157.571C1066.66,145.131 1080,124.236 1080,110.646L1080,0L0,0C0,65.778 0,110.647 0,110.647'/%3E%3C/svg%3E") center top / 100% 100% no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1080 449' preserveAspectRatio='none'%3E%3Cpath d='M0,110.647C5.462,110.647 31.022,186.945 34.477,195.441C53.406,241.997 68.131,290.145 87.391,336.573C101.498,370.581 116.007,409.486 150.422,427.914C186.271,447.11 230.12,430.671 249.748,396.478C268.502,363.806 273.091,324.989 291.802,292.247C313.787,253.777 360.461,234.619 400.248,261.069C463.815,303.331 435.825,437.45 530.042,440.063C635.76,442.994 615.181,301.621 684.028,259.348C684.03,259.346 732.448,229.618 778.328,274.624C821.426,316.905 811.969,401.448 866.873,433.648C892.692,448.79 925.162,440.406 946.239,421.043C980.09,389.943 993.332,334.66 1009.6,292.622C1027.01,247.605 1044.43,202.588 1061.85,157.571C1066.66,145.131 1080,124.236 1080,110.646L1080,0L0,0C0,65.778 0,110.647 0,110.647'/%3E%3C/svg%3E") center top / 100% 100% no-repeat;
+}
+
 /* Iron Man — an angled armour-plate cut, not a straight edge */
 html[data-swift-preset="iron-man"] .number-card::before,
 html[data-swift-preset="iron-man"] .number-widget-box::before {
@@ -165,6 +176,20 @@ html[data-swift-preset="winter-soldier"] .number-widget-box::before {
    differs is restated — width, shape, fill — everything else cascades.
    ========================================================================== */
 
+/* Droobi — the purple bar with a yellow drop set inside it: the yellow only
+   ever on purple, where it reads, as the wordmark does in the brand file */
+html[data-swift-preset="droobi"] .ce-header::after {
+    width: 56px;
+    height: 6px;
+    border-radius: 3px;
+    background:
+        radial-gradient(circle at calc(100% - 4px) 50%,
+            var(--swift-accent-tint, var(--swift-secondary)) 0 2px, transparent 2.5px),
+        linear-gradient(90deg,
+            var(--swift-primary, var(--swift-accent)),
+            var(--swift-secondary, var(--swift-accent-hover)));
+}
+
 /* Iron Man — the same angled armour cut */
 html[data-swift-preset="iron-man"] .ce-header::after {
     width: 54px;
@@ -300,6 +325,14 @@ html[data-swift-preset="winter-soldier"] .ce-header::after {
    places, one identity.
    ========================================================================== */
 
+/* Droobi — a calm strip from the purple to its deep end */
+html[data-swift-preset="droobi"] {
+    --swift-head-accent-size: 4px 100%;
+    --swift-head-accent: linear-gradient(180deg,
+        var(--swift-primary, var(--swift-accent)),
+        var(--swift-secondary, var(--swift-accent-hover)));
+}
+
 /* Iron Man — segmented armour plating */
 html[data-swift-preset="iron-man"] {
     --swift-head-accent-size: 5px 100%;
@@ -406,4 +439,38 @@ html[data-swift-preset="winter-soldier"] {
         transparent 2px 3px,
         var(--swift-secondary, var(--swift-accent-hover)) 3px 4px,
         transparent 4px 6px);
+}
+
+/* ==========================================================================
+   DESK ICONS
+
+   Frappe's module icons are images with its blue baked in, so they are
+   recoloured by a colour matrix (swift-icon-tint.js) rather than a colour.
+   A preset opts in by naming the three colours; only the solid icons are
+   matched, since the subtle set draws a pale tile with a coloured glyph.
+   ========================================================================== */
+
+/* Droobi — every module icon as Droobi's own app icon: the yellow mark on a
+   purple tile (4.75:1), and the framework's grey tiles in the muted purple */
+html[data-swift-preset="droobi"] {
+    --swift-icon-tile: var(--swift-primary);
+    --swift-icon-muted: var(--swift-muted);
+    --swift-icon-glyph: var(--swift-accent-tint);
+}
+
+/* Frappe's own mark (the navbar, the Framework tiles) is the same grey tile
+   and white glyph, so it takes the muted purple with the rest */
+html[data-swift-preset="droobi"] img[src*="/icons/desktop_icons/solid/"],
+html[data-swift-preset="droobi"] img[src$="/frappe-framework-logo.svg"] {
+    filter: url(#swift-icon-tint);
+}
+
+/* A folder's tile was near-white with a 1px grey shadow, and on the lilac
+   page it all but vanished: a white card, a lilac hairline and a soft shadow
+   tinted with the purple, as the cards elsewhere */
+html[data-swift-preset="droobi"] .desktop-icon .icon-container.folder-icon {
+    background-color: var(--card-bg);
+    box-shadow:
+        0 0 0 1px color-mix(in oklab, var(--swift-primary) 22%, transparent),
+        0 4px 12px color-mix(in oklab, var(--swift-primary) 14%, transparent);
 }

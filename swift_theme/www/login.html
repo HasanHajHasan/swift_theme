@@ -27,8 +27,20 @@
    and the forgot link keep this theme's hooks (btn-login, btn-login-option,
    forgot-password-message, form-label), which swift-login.css styles.
 #}
-{% from "templates/includes/login/macros.html" import alert_banner %}
 {% extends "templates/web.html" %}
+{#- Local change on this bench (2026-11-06): Frappe 16.33 has no
+    templates/includes/login/macros.html, so importing alert_banner from it
+    made /login a 500. This draws 16.33's own banner markup instead, which its
+    login.js shows and fills (.login-error-banner span). Drop it once the bench
+    runs a Frappe that ships the macro. -#}
+{% macro alert_banner(kind, message=None) -%}
+<div class="login-{{ kind }}-banner">
+	<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<use href="#es-line-alert-{{ 'triangle' if kind == 'error' else 'circle' }}"></use>
+	</svg>
+	<span>{{ message or "" }}</span>
+</div>
+{%- endmacro %}
 {% block navbar %}
 {% if show_language_picker %}
     {{ super() }}

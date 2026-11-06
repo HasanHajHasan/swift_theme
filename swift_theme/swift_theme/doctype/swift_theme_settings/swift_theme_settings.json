@@ -105,7 +105,7 @@
    "fieldtype": "Select",
    "label": "Active Preset",
    "mandatory_depends_on": "eval:doc.color_mode=='Theme Preset'",
-   "options": "Iron Man\nCaptain America\nDoctor Strange\nStar-Lord\nVision\nScarlet Witch\nBlack Panther\nLoki\nHulk\nThanos\nVenom\nWinter Soldier"
+   "options": "Droobi\nIron Man\nCaptain America\nDoctor Strange\nStar-Lord\nVision\nScarlet Witch\nBlack Panther\nLoki\nHulk\nThanos\nVenom\nWinter Soldier"
   },
   {
    "collapsible": 1,

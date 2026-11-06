@@ -1021,10 +1021,12 @@ class TestSwiftThemeColors(IntegrationTestCase):
             "Iron Man", "Captain America", "Doctor Strange", "Star-Lord",
             "Vision", "Scarlet Witch", "Black Panther", "Loki", "Hulk",
             "Thanos", "Venom", "Winter Soldier",
+            # Droobi, the pilot operator's own, light (droobi_delivery's theme)
+            "Droobi",
         }
         self.assertEqual(set(PREMIUM_THEMES), expected)
         modes = [d["mode"] for d in PREMIUM_THEMES.values()]
-        self.assertEqual(modes.count("light"), 6, "six light presets expected")
+        self.assertEqual(modes.count("light"), 7, "seven light presets expected")
         self.assertEqual(modes.count("dark"), 6, "six dark presets expected")
 
     def test_stylesheets_match_the_palette(self):

@@ -19,6 +19,7 @@ import "./swift-palette.js";
 import "./swift-calendar.js";
 import "./swift-orgchart.js";
 import "./swift-sidebar.js";
+import "./swift-icon-tint.js";
 import "./swift-focus.js";
 import "./swift-perf.js";
 import "./swift-sounds.js";

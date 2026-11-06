@@ -19,6 +19,29 @@ from swift_theme.scripts.colour import derive_roles
 # Regenerate the stylesheets after editing:
 #     python3 swift_theme/scripts/generate_theme_css.py
 PREMIUM_THEMES = {
+    # Droobi, the pilot operator (droobi_delivery's droobi-theme.css, from the
+    # brand file droobi.pdf). Light: lilac page, white cards, the portal's own
+    # button purple. Yellow (#fefc04) reads at 1.1:1 on white, so it is the
+    # tint only - the backdrop's glow and the drops set inside purple - never
+    # the secondary, which carries white text in buttons and table headers.
+    "Droobi": {
+        "slug": "droobi",
+        "mode": "light",
+        "backdrop": "droobi",
+        "roles": {
+            "canvas": "#f8f2ff",
+            "surface": "#ffffff",
+            "surface_alt": "#fcf9ff",
+            "on_canvas": "#221830",
+            "on_surface": "#221830",
+            "muted": "#71687d",
+            "border": "rgba(34, 24, 48, 0.13)",
+            "primary": "#904bc8",
+            "secondary": "#5d2886",
+            "tint": "#fefc04",
+            "on_primary": "#ffffff",
+        },
+    },
     "Iron Man": {
         "slug": "iron-man",
         "mode": "light",
