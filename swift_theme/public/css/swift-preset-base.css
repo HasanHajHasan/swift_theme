@@ -254,8 +254,11 @@ html[data-swift-themed] .number-card .widget-body .number {
 /* ========================================================================
    Full-theme scoped: List / Report / Kanban premium look
    ======================================================================== */
+/* Mixed into the card, not into transparent: the row is a white card, and a
+   see-through tint let the page's backdrop show through the hovered row only.
+   The sticky right column in swift-desk.css paints this same mix to match. */
 html[data-swift-themed] .list-row-container:hover {
-  background: color-mix(in oklab, var(--swift-accent) 12%, transparent) !important;
+  background: color-mix(in oklab, var(--swift-accent) 12%, var(--card-bg)) !important;
 }
 html[data-swift-themed] .dt-header {
   background: color-mix(in oklab, var(--card-bg) 80%, var(--swift-accent) 20%) !important;

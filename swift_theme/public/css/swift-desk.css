@@ -45,7 +45,6 @@ html:not([data-swift-themed]) body {
 
 /* ---------------- List view ---------------- */
 html[data-swift-themed] .list-row-container,
-html[data-swift-themed] .filter-section,
 html[data-swift-themed] .report-summary {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
@@ -54,18 +53,56 @@ html[data-swift-themed] .report-summary {
     overflow: hidden;
 }
 
-html[data-swift-themed] .filter-section,
 html[data-swift-themed] .report-summary {
     padding: 12px;
     margin-bottom: 16px;
 }
 
-/* The card look above sets `overflow: hidden` so the list's rounded corners
-   clip its rows. The filter bar is not a list of rows - it holds the filter and
-   sort dropdowns, and those open downward, out of the box. Clipped there, the
-   sort menu was cut off mid-item with no way to reach the rest of it. */
-html[data-swift-themed] .filter-section {
-    overflow: visible;
+/* The filter bar is .page-form, and it is the card. .filter-section is only
+   the Filter and Sort buttons at its end, inside it; it used to be given the
+   card look as well, which drew a rounded box inside a square white strip,
+   taller than the fields beside it, with the buttons sunk below the first row
+   of fields. The bar itself is rounded here instead, and the buttons sit in it
+   as Frappe lays them out. No overflow: hidden on the bar - the filter and
+   sort menus open downward, out of it.
+
+   Capped at 16px: a filter bar is often two or three rows of fields, and the
+   Pill scale's 999px would cut its corners through them. */
+html[data-swift-themed] .page-form {
+    border: 1px solid var(--border-color);
+    border-radius: min(var(--swift-radius, 12px), 16px);
+    box-shadow: var(--swift-shadow-sm, 0 2px 8px rgba(0, 0, 0, 0.06));
+}
+
+/* In the list and report views the rows sit 15px in from the page area
+   (.frappe-list's margin), so the bar does too, and its edges line up with
+   the cards below it. A gap above it only when something comes first, such as
+   an app's own cards over the list. */
+html[data-swift-themed] .list-view > .layout-main-section > .page-form,
+html[data-swift-themed] .report-view > .layout-main-section > .page-form {
+    margin: 0 var(--margin-md, 15px) var(--margin-sm, 10px);
+}
+
+html[data-swift-themed] .list-view > .layout-main-section > .page-form:not(:first-child),
+html[data-swift-themed] .report-view > .layout-main-section > .page-form:not(:first-child) {
+    margin-top: var(--margin-sm, 10px);
+}
+
+/* Frappe pins each row's right-hand column (time, comments, like) with
+   position: sticky and paints it in the page colour, --bg-color, to cover
+   what scrolls under it. The rows are white cards here, so that left a block
+   of page colour at the end of every row, and a grey one on hover with a grey
+   glow beside it. It is painted as the row is: the card, and on hover the
+   same two tints the row carries (the container's below, the row's on top). */
+html[data-swift-themed] .list-row .level-right {
+    background-color: var(--card-bg);
+}
+
+html[data-swift-themed] .list-row-container:hover .list-row .level-right {
+    background:
+        linear-gradient(var(--swift-accent-soft), var(--swift-accent-soft)),
+        color-mix(in oklab, var(--swift-accent) 12%, var(--card-bg));
+    box-shadow: none;
 }
 
 html[data-swift-themed] .list-row {
