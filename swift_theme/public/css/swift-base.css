@@ -55,3 +55,8 @@ html[data-swift-density] .layout-main-section {
 html[data-swift-density] .form-control {
   padding: calc(var(--swift-space-2) - 2px) var(--swift-space-3);
 }
+/* Frappe gives a select no top or bottom padding (controls.scss) so its text
+   has the whole box; the rule above puts 6px back and cuts the text off. */
+html[data-swift-density] select.form-control {
+  padding-block: 0;
+}
